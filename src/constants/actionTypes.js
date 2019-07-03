@@ -1,0 +1,12 @@
+export const SELECTED_IMAGE        = 'SELECTED_IMAGE';
+export const SEARCH_MEDIA_SUCCESS = 'SEARCH_MEDIA_SUCCESS';
+export const SEARCH_MEDIA_REQUEST  = 'SEARCH_MEDIA_REQUEST';
+export const SEARCH_MEDIA_FAILURE  = 'SEARCH_MEDIA_FAILURE';
+
+export const POLL_START = 'POLL_START';
+export const POLL_ERROR = 'POLL_ERROR';
+export const POLL_STOP  = 'POLL_STOP';
+
+
+
+
