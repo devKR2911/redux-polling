@@ -27,11 +27,20 @@ export class HomePage extends Component {
       isPollingActive: true
     });
     const pollParams = {
-      url: 'cricket', // End point URL
-      pollInterval: 5000, // 5 Seconds
-      successAction: types.SEARCH_MEDIA_SUCCESS, // Success Action
-      errorAction: types.SEARCH_MEDIA_FAILURE, // Failure action
-      factory: MediaFactory // Data formating factory
+      // url: End point URL
+      url: 'cricket',
+
+      // pollInterval: 5 Seconds this mentions the interval at which polling should happen.
+      pollInterval: 5000,
+
+      // successAction: Success Action to be triggered on polling success.
+      successAction: types.SEARCH_MEDIA_SUCCESS,
+
+      // errorAction: Failure action to be triggered on polling error.
+      errorAction: types.SEARCH_MEDIA_FAILURE,
+
+      // factory: Data formating factory. Send if any factory formating required.
+      factory: MediaFactory
     };
     this.props.dispatch(startPoll(pollParams));
   };
@@ -49,11 +58,12 @@ export class HomePage extends Component {
       <div className="jumbotron">
         <h1 className="lead"> Welcome to Gallary app with redux polling </h1>
         <h4 className="lead">
-          Last updated on{' '}
+          Last updated on
           <b>
-            {new Date(lastUpdatedOn).getHours()} Hours{' '}
-            {new Date(lastUpdatedOn).getMinutes()} Minutes{' '}
-            {new Date(lastUpdatedOn).getSeconds()} Seconds{' '}
+            {new Date(lastUpdatedOn).getHours()}
+            Hours {new Date(lastUpdatedOn).getMinutes()}
+            Minutes {new Date(lastUpdatedOn).getSeconds()}
+            Seconds
           </b>
         </h4>
         <div>

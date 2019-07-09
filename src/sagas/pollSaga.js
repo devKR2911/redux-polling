@@ -14,10 +14,14 @@ function* pollSaga(payload) {
 
       //Check if whether any factory manipulation is required
       const updatedResult = payload.factory ? payload.factory(result) : result;
+
+      // Calling success action on api success.
       yield put({
         type: payload.successAction,
         result: updatedResult
       });
+
+      // Calling the delay effect on success.
       yield call(delay, payload.pollInterval);
     } catch (err) {
       // Once the polling has encountered an error, it should be stopped immediately
@@ -36,7 +40,9 @@ function* pollSaga(payload) {
 
 export default function* pollSagaWatch() {
   while (true) {
+    // Taking the POLL_START dispatch action.
     const action = yield take(types.POLL_START);
+    // Custom payload will be available at action object.
     yield race([call(pollSaga, action.payload), take(types.POLL_STOP)]);
   }
 }
